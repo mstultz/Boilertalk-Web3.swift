@@ -10,7 +10,7 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Web3",
+            name: "BoilerTalkWeb3",
             targets: ["Web3"]),
         .library(
             name: "Web3PromiseKit",
