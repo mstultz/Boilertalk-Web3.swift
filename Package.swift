@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-    name: "Web3",
+    name: "BoilerTalkWeb3",
     platforms: [
        .iOS(.v10),
        .macOS(.v10_12)
@@ -34,7 +34,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "Web3",
+            name: "BoilerTalkWeb3",
             dependencies: [
                 .product(name: "BigInt", package: "BigInt"),
                 .product(name: "CryptoSwift", package: "CryptoSwift"),
@@ -45,7 +45,7 @@ let package = Package(
         .target(
             name: "Web3PromiseKit",
             dependencies: [
-                .target(name: "Web3"),
+                .target(name: "BoilerTalkWeb3"),
                 .product(name: "PromiseKit", package: "PromiseKit"),
             ],
             path: "Sources",
@@ -53,21 +53,22 @@ let package = Package(
         .target(
             name: "Web3ContractABI",
             dependencies: [
-                .target(name: "Web3"),
+                .target(name: "BoilerTalkWeb3"),
                 .product(name: "BigInt", package: "BigInt"),
                 .product(name: "CryptoSwift", package: "CryptoSwift"),
             ],
             path: "Sources",
             sources: ["ContractABI"]),
         .testTarget(
-            name: "Web3Tests",
+            name: "BoilerTalkWeb3Tests",
             dependencies: [
-                .target(name: "Web3"),
+                .target(name: "BoilerTalkWeb3"),
                 .target(name: "Web3PromiseKit"),
                 .target(name: "Web3ContractABI"),
                 .product(name: "Quick", package: "Quick"),
                 .product(name: "Nimble", package: "Nimble"),
-            ]),
+            ],
+            path: "BoilerTalkWeb3Tests"),
     ],
     swiftLanguageVersions: [.v5]
 )
